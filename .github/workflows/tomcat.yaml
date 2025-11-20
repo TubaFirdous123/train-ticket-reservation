@@ -23,11 +23,11 @@ jobs:
          run: mvn package
        - name: Deploy to Tomcat
          run: | 
-                curl -v -u ${{ secrets.TOMCAT_USER }}:${{ secrets.TOMCAT_PASSWORD }} \
-                  -T target/TrainBook-1.0.0-SNAPSHOT.war \
-                  "http://${{ secrets.TOMCAT_HOST }}:8080/manager/text/deploy?path&update=true"
+               curl -v -u admin:password \
+               -T target/TrainBook-1.0.0-SNAPSHOT.war \
+               "http://localhost:8080/manager/text/deploy?path=/TrainBook&update=true"
 
-
+               
                   
      
          
